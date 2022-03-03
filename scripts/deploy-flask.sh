@@ -29,9 +29,9 @@ while [ "$1" != "" ]; do
     shift
 done
 
-git checkout $branch
-git pull --rebase
-git reset --hard origin/$branch
+#git checkout $branch
+#git pull --rebase
+#git reset --hard origin/$branch
 
 export AWS_DEFAULT_REGION=eu-west-2
 
@@ -63,3 +63,4 @@ docker push ${REPOSITORY_URI}:${BUILD_ID}
 
 # https://github.com/silinternational/ecs-deploy/blob/develop/ecs-deploy
 ecs-deploy  -p personal -c ${CLUSTER} -n ${SERVICE_NAME} -i ${REPOSITORY_URI}:${BUILD_ID} -t 900 --enable-rollback
+p
